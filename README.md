@@ -1,16 +1,104 @@
-# TFG — Diseño e implementación de una aplicación generativa de explicación de contenidos de telecomunicaciones de dominio específico.
+# TelecoSLM — Diseño e implementación de una aplicación generativa de explicación de contenidos de telecomunicaciones de dominio específico
 
 [![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Disponible en Google Play](https://img.shields.io/badge/Google%20Play-Teleco%20SLM-success?logo=google-play&logoColor=white)](https://play.google.com/store/apps/details?id=com.telecoslm.app)
+[![Hugging Face](https://img.shields.io/badge/Hugging%20Face-Qwen3%201.7B%20Teleco%20GGUF-yellow?logo=huggingface&logoColor=white)](https://huggingface.co/arturofierrop/qwen-3-1.7B-teleco-slm-GGUF)
 
-Trabajo de Fin de Grado en Ingeniería de Sistemas de Telecomunicación (Universidad CEU San Pablo, Madrid).
+Trabajo de Fin de Grado en Ingeniería de Sistemas de Telecomunicación (Universidad CEU San Pablo, Madrid). **Calificación: Matrícula de Honor.** Finalista entre los 10 mejores proyectos de los Premios Mondragón.
 
 Este proyecto compara LLMs, SLMs, Mini-SLMs, modelos fine-tuneados y un GAN generativo en tareas de generación de texto, evaluados sobre cuatro datasets: WebNLG, ToTTo, KELM y un corpus propio en español del ámbito de telecomunicaciones (*Teleco*, ~24.680 pares Q&A). El resultado final es **TelecoSLM**, una app Flutter que ejecuta el modelo seleccionado (Qwen3 1.7B FT, Q4_K_M GGUF) de forma completamente offline en Android y Windows.
+
+## Por qué
+
+Un LLM de 70B necesita API externa, conexión y coste por consulta. En este estudio, los LLM costaron entre 1,15 $ y 10,27 $ por corpus evaluado (cinco veces más que los SLM), con latencias de 1,4-2,4 s por fila y emisiones de 333 a 5.127 gramos de CO₂ por dataset. Un modelo de 1,7B ajustado sobre un corpus de dominio se ejecuta en el propio dispositivo: sin red, sin coste marginal por consulta y sin que ningún dato salga del equipo.
+
+La pregunta del trabajo es cuánta calidad se pierde al bajar de escala, y la respuesta es: mucha menos de la esperada, y en dominio específico ninguna.
+
+## Resultados
+
+### Validación previa de necesidad
+
+Encuesta a 220 participantes sobre la disposición a usar una herramienta de IA especializada como apoyo al estudio: el **86,4 %** se mostró de acuerdo o totalmente de acuerdo (87,1 % en el subgrupo de estudiantes de grado y máster, n = 178).
+
+### Grupo 1 — LLM vs SLM vs Mini-SLM sobre corpus genéricos
+
+La jerarquía por tamaño existe, pero es mucho más estrecha de lo esperado. Diferencia en ROUGE-L entre el mejor LLM y el mejor SLM:
+
+| Dataset | Mejor LLM | Mejor SLM | Diferencia |
+|---------|-----------|-----------|------------|
+| WebNLG  | 0,540     | 0,528     | 0,012      |
+| ToTTo   | 0,505     | 0,499     | 0,005      |
+| KELM    | 0,331     | 0,326     | 0,005      |
+
+En BERTScore sobre KELM la diferencia media entre LLM y SLM es de **0,0004 puntos**: prácticamente nula. En el diagrama de diferencia crítica de KELM, DeepSeek (rango 4,76), Gemma 2 9B (4,78) y Qwen 2.5 72B (4,82) forman un bloque sin diferencias significativas al que se suma Gemma 3 1B (4,90) — un modelo de 1B es indistinguible de uno de 72B en similitud semántica sobre corpus técnico.
+
+En WebNLG, Qwen 3 1.7B alcanza un ROUGE-L de 0,536, por encima de varios SLM de mayor tamaño.
+
+**Validación estadística.** Test de Friedman significativo en todas las métricas y datasets (p < 0,05). Con muestras de este tamaño el p-valor pierde valor informativo, por lo que el criterio de interpretación principal es el tamaño de efecto r de Wilcoxon sobre el post-hoc de Nemenyi, con los umbrales convencionales de Cohen:
+
+- LLM vs SLM en ToTTo y KELM: efectos nulos o pequeños (r = 0,01 – 0,21) en todas las métricas.
+- LLM vs SLM en BERTScore: r = 0,05 – 0,41, mayoritariamente nulos o pequeños.
+- LLM vs Mini-SLM en METEOR sobre WebNLG: aquí sí aparecen efectos grandes (r = 0,57 – 0,69).
+
+Es decir, las diferencias son estadísticamente detectables pero en su mayoría irrelevantes en la práctica.
+
+### Grupo 2 — Impacto del fine-tuning sobre el corpus propio
+
+Sobre el corpus de telecomunicaciones (24.680 pares, 7.699 observaciones por modelo), el fine-tuning con LoRA invierte la jerarquía:
+
+| Modelo | ROUGE-L | BERTScore | BLEU |
+|--------|---------|-----------|------|
+| **Qwen 3 1.7B FT** | **0,286** | **0,895** | **0,069** |
+| Gemma 3 1B FT | 0,264 | 0,889 | 0,053 |
+| Qwen 3 1.7B base | 0,159 | 0,846 | 0,011 |
+| GAN (430M, desde cero) | 0,147 | 0,856 | 0,001 |
+| Llama 3.2 1B FT | 0,146 | — | 0,020 |
+| Gemma 3 1B base | 0,135 | — | 0,008 |
+| Llama 3.2 1B base | 0,132 | — | 0,009 |
+
+![Boxplots de todas las métricas en el corpus propio](docs/boxplots-corpus-propio.png)
+
+Mejora de Qwen 3 1.7B FT sobre su propio modelo base: **ROUGE-L +80,5 %** (0,159 → 0,286), **BLEU +531 %** (0,011 → 0,069), **BERTScore +5,8 %** (0,846 → 0,895). La brecha media en BERTScore entre los modelos ajustados y sus bases es de 0,037 puntos, mayor que la observada entre LLM y SLM en corpus genéricos.
+
+![Diagrama de diferencia crítica en el corpus propio](docs/cd-diagram-corpus-propio.png)
+
+**Validación estadística.** Post-hoc de Nemenyi: 20 de 21 pares significativos en ROUGE-L y 21 de 21 en METEOR y BERTScore. Los efectos de los modelos ajustados frente a la GAN son grandes (r = 0,79 – 0,83). Se comprobó además que el ajuste no degrada la generalización fuera de dominio: comparando los Mini-SLM base con sus versiones ajustadas sobre KELM, los tamaños de efecto resultan nulos o pequeños (r < 0,3).
+
+### Sobre la GAN
+
+La GAN entrenada desde cero (SeqGAN condicional con Gumbel-Softmax, ~430M parámetros) supera en ROUGE-L a los Mini-SLM base de Gemma y Llama (0,147 frente a 0,135 y 0,132) y es la opción más eficiente del estudio: coste de inferencia 0 $ y 2,6 gramos de CO₂ frente a los 15-34 gramos de los modelos ajustados.
+
+Pero su BLEU es prácticamente nulo (0,001), reflejo del ruido que el Gumbel-Softmax introduce en el gradiente y de un ratio parámetros/datos desfavorable (430M parámetros sobre 17.000 pares de entrenamiento, frente a Mini-SLM preentrenados con billones de tokens). Esa falta de precisión léxica la descarta para generación estructurada orientada a consulta.
+
+### Modelo desplegado
+
+**Qwen 3 1.7B FT**, cuantizado a Q4_K_M en formato GGUF (de 3,4 GB en fp16 a 1,1 GB). Rendimiento medido en la aplicación:
+
+| Métrica | Windows (Intel Core i5) | Android (Galaxy A70) |
+|---------|-------------------------|----------------------|
+| Tiempo hasta primer token | 2.384 ms | 28.896 ms |
+| Tiempo total de respuesta | 10,20 s | 79,5 s |
+| Velocidad de generación | 9,6 tok/s | 1,48 tok/s |
+| Uso de memoria RAM | 13,0 % | 7,5 % |
+
+### Validación con usuarios
+
+Beta distribuida a 12 estudiantes de Ingeniería de Telecomunicaciones durante 14 días, conforme al RGPD (UE 2016/679):
+
+| Criterio | Puntuación (1-5) |
+|----------|------------------|
+| Utilidad como apoyo al estudio | 4,7 |
+| Facilidad de uso | 4,4 |
+| Valoración global | 4,4 |
+| Calidad de las respuestas | 4,2 |
+| Naturalidad del lenguaje | 4,1 |
+
+El 88 % recomendaría la aplicación.
 
 ## Estructura del repositorio
 
 ```
-TFG/
+TelecoSLM/
 ├── LLM/                        # Pipeline de inferencia para LLMs (+70B params)
 ├── SLM/                        # Pipeline de inferencia para SLMs (~7-14B params)
 ├── mini-SLM/                   # Pipeline de inferencia para Mini-SLMs (~1-3B params)
@@ -21,6 +109,7 @@ TFG/
 ├── base_teleco/                # Dataset de Telecomunicaciones (~24.680 pares Q&A)
 ├── base_kelm/                  # Dataset KELM filtrado por temática STEM
 ├── splits/                     # Splits train/val/test por subtema
+├── docs/                       # Capturas de la app y gráficas de resultados
 ├── Manual de Usuario - TelecoSLM.pdf
 ├── requirements.txt            # Dependencias Python
 ├── .env.example                # Plantilla de variables de entorno
@@ -119,16 +208,9 @@ python fine-tuning/fusionar_lora.py
 ```bash
 python graficas_y_tests/calcula_metricas.py --input-dir resultados
 python graficas_y_tests/posthoc.py --input-dir resultados
-python graficas_y_tests/boxplots.py --input-dir resultados
-python graficas_y_tests/violinplots.py --input-dir resultados
-python graficas_y_tests/barplots.py --input-dir resultados
-python graficas_y_tests/qq_plots.py --input-dir resultados
-python graficas_y_tests/graficasdistribucion.py --input-dir resultados
-python graficas_y_tests/graficatiempo.py --input-dir resultados
-python graficas_y_tests/bootstrap.py --input-dir resultados
-python graficas_y_tests/analisis_p.py --input-dir resultados
-python graficas_y_tests/ranking.py --input-dir resultados
 ```
+
+El resto de scripts de `graficas_y_tests/` (boxplots, violin plots, bar plots, Q-Q plots, bootstrap, ranking, gráficas de distribución y de tiempos) siguen el mismo patrón y admiten `--input-dir`. Consulta `--help` en cada uno.
 
 ### Referencia de flags por script
 
@@ -186,10 +268,14 @@ Generación de gráficas y tests estadísticos sobre los resultados de los pipel
 
 App Flutter multiplataforma que permite consultar información de telecomunicaciones offline.
 
+![TelecoSLM: pantalla principal y respuesta con renderizado LaTeX](docs/app-telecoslm.png)
+
 - **Android**: usa `llama_flutter_android` para inferencia nativa del GGUF.
 - **Windows**: usa `llama-server.exe` vía HTTP local.
 - Filtro de tokens de modo thinking con auto-retry.
 - System prompt few-shot optimizado para respuestas en español.
+- Renderizado completo de Markdown y fórmulas en LaTeX.
+- Historial de conversaciones almacenado exclusivamente en el dispositivo mediante SQLite. En modo local o GGUF ningún dato abandona el equipo.
 
 La app está publicada en Google Play: **[Teleco SLM](https://play.google.com/store/apps/details?id=com.telecoslm.app)**.
 
@@ -219,6 +305,17 @@ Dataset KELM filtrado por temática STEM (~60.000 filas). Incluye el script de f
 - Python 3.11, PyTorch, Hugging Face Transformers, PEFT, llama.cpp
 - Flutter / Dart
 - APIs: OpenRouter, Together AI
+
+## Limitaciones
+
+- **Latencia en Android.** En un Samsung Galaxy A70 sin acelerador dedicado, el tiempo hasta el primer token ronda los 28,9 segundos y la respuesta completa los 79,5 segundos, valores fuera del rango de lo que un usuario consideraría interactivo. Cuantizaciones de menor precisión (4-bit o 2-bit) y optimizaciones para arquitecturas ARM son la línea de mejora más inmediata.
+- **Cobertura del corpus.** El dataset Teleco está construido a partir de un único plan de estudios y tiene cobertura desigual entre asignaturas, lo que limita la generalización a otros programas de grado o a contenidos no cubiertos en ese temario.
+- **Alcance de las métricas.** ROUGE-L, METEOR, BLEU y BERTScore capturan solapamiento léxico y semántico frente a la referencia, pero no evalúan corrección factual ni razonamiento técnico. Esas dimensiones solo puede cubrirlas de forma fiable la evaluación humana.
+- **Recursos de cómputo.** El hardware disponible limitó el tamaño de la GAN y obligó a alquilar servidores para la inferencia de los modelos grandes, lo que acota el espacio de configuraciones exploradas.
+
+## Trabajo futuro
+
+Ampliar el corpus con más preguntas por temática, explorar RAG sobre el corpus propio para reducir alucinaciones, evaluar técnicas de destilación del conocimiento desde LLM hacia Mini-SLM ajustados, e incorporar evaluación humana sistemática como complemento a las métricas automáticas.
 
 ## Autor y tutores
 
