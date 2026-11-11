@@ -2,6 +2,7 @@
 
 # TelecoSLM — Design and implementation of a domain-specific generative application for explaining telecommunications content
 
+[![Tests](https://github.com/ArturoFierroPardo/TelecoSLM/actions/workflows/tests.yml/badge.svg)](https://github.com/ArturoFierroPardo/TelecoSLM/actions/workflows/tests.yml)
 [![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Available on Google Play](https://img.shields.io/badge/Google%20Play-Teleco%20SLM-success?logo=google-play&logoColor=white)](https://play.google.com/store/apps/details?id=com.telecoslm.app)
 [![Hugging Face](https://img.shields.io/badge/Hugging%20Face-Qwen3%201.7B%20Teleco%20GGUF-yellow?logo=huggingface&logoColor=white)](https://huggingface.co/arturofierrop/qwen-3-1.7B-teleco-slm-GGUF)
