@@ -284,7 +284,7 @@ App Flutter multiplataforma que permite consultar información de telecomunicaci
 
 La app está publicada en Google Play: **[Teleco SLM](https://play.google.com/store/apps/details?id=com.telecoslm.app)**.
 
-La guía de instalación y uso de la app está en [Manual de Usuario - TelecoSLM.pdf](Manual%20de%20Usuario%20-%20TelecoSLM.pdf).
+La guía de instalación y uso de la app está en el [manual de usuario](docs/Manual_de_usuario.md).
 
 > **Nota:** El archivo `.gguf` del modelo no está incluido por su tamaño. Para obtenerlo, descárgalo desde [Hugging Face](https://huggingface.co/arturofierrop/qwen-3-1.7B-teleco-slm-GGUF).
 
