@@ -284,7 +284,7 @@ Cross-platform Flutter app for querying telecommunications content offline.
 
 The app is published on Google Play: **[Teleco SLM](https://play.google.com/store/apps/details?id=com.telecoslm.app)**.
 
-The installation and usage guide for the app is in [Manual de Usuario - TelecoSLM.pdf](Manual%20de%20Usuario%20-%20TelecoSLM.pdf).
+The installation and usage guide for the app is in the [user manual](docs/User_manual.md).
 
 > **Note:** The model `.gguf` file is not included because of its size. Download it from [Hugging Face](https://huggingface.co/arturofierrop/qwen-3-1.7B-teleco-slm-GGUF).
 
