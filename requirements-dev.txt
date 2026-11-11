@@ -1,0 +1,10 @@
+# Dependencies needed to run the test suite.
+# Deliberately lighter than requirements.txt: the tests cover pure helper
+# functions and the committed split artefact, so torch, transformers and the
+# metric libraries are not needed here. This keeps CI runs under a minute.
+
+pytest>=8.0
+pandas>=2.0
+numpy>=1.24
+scipy>=1.10
+tqdm>=4.65
