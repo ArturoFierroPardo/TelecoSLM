@@ -1,7 +1,8 @@
-# Dependencies needed to run the test suite.
-# Deliberately lighter than requirements.txt: the tests cover pure helper
-# functions and the committed split artefact, so torch, transformers and the
-# metric libraries are not needed here. This keeps CI runs under a minute.
+# Dependencias necesarias para ejecutar la suite de tests.
+# Deliberadamente más ligeras que requirements.txt: los tests cubren funciones
+# auxiliares puras y el artefacto de splits versionado, así que no hacen falta
+# torch, transformers ni las librerías de métricas. Esto mantiene el CI por
+# debajo de un minuto.
 
 pytest>=8.0
 pandas>=2.0
