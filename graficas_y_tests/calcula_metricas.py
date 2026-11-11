@@ -98,7 +98,7 @@ def contar_tokens(texto):
         import tiktoken
         enc = tiktoken.get_encoding("cl100k_base")
         return len(enc.encode(str(texto)))
-    except ImportError:
+    except Exception:
         return len(str(texto)) // 4
 
 
