@@ -1,3 +1,5 @@
+[English](README.md) · **Español**
+
 # TelecoSLM — Diseño e implementación de una aplicación generativa de explicación de contenidos de telecomunicaciones de dominio específico
 
 [![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
@@ -52,9 +54,11 @@ Sobre el corpus de telecomunicaciones (24.680 pares, 7.699 observaciones por mod
 | Gemma 3 1B FT | 0,264 | 0,889 | 0,053 |
 | Qwen 3 1.7B base | 0,159 | 0,846 | 0,011 |
 | GAN (430M, desde cero) | 0,147 | 0,856 | 0,001 |
-| Llama 3.2 1B FT | 0,146 | — | 0,020 |
-| Gemma 3 1B base | 0,135 | — | 0,008 |
-| Llama 3.2 1B base | 0,132 | — | 0,009 |
+| Llama 3.2 1B FT | 0,146 | 0,859 | 0,020 |
+| Gemma 3 1B base | 0,135 | 0,840 | 0,008 |
+| Llama 3.2 1B base | 0,132 | 0,845 | 0,009 |
+
+> *El BERTScore separa mucho menos que el ROUGE-L: todos los modelos caen en una banda de 0,055 (0,840–0,895), mientras que el ROUGE-L abarca más del doble (0,132–0,286). La similitud semántica satura en este corpus; lo que discrimina es el solapamiento léxico.*
 
 ![Boxplots de todas las métricas en el corpus propio](docs/boxplots-corpus-propio.png)
 
@@ -115,7 +119,8 @@ TelecoSLM/
 ├── .env.example                # Plantilla de variables de entorno
 ├── .gitignore
 ├── LICENSE
-└── README.md
+├── README.md                   # Inglés
+└── README.es.md                # Español
 ```
 
 ## Requisitos e instalación
