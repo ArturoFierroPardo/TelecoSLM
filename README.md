@@ -2,6 +2,7 @@
 
 # TelecoSLM — Diseño e implementación de una aplicación generativa de explicación de contenidos de telecomunicaciones de dominio específico
 
+[![Tests](https://github.com/ArturoFierroPardo/TelecoSLM/actions/workflows/tests.yml/badge.svg)](https://github.com/ArturoFierroPardo/TelecoSLM/actions/workflows/tests.yml)
 [![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Disponible en Google Play](https://img.shields.io/badge/Google%20Play-Teleco%20SLM-success?logo=google-play&logoColor=white)](https://play.google.com/store/apps/details?id=com.telecoslm.app)
 [![Hugging Face](https://img.shields.io/badge/Hugging%20Face-Qwen3%201.7B%20Teleco%20GGUF-yellow?logo=huggingface&logoColor=white)](https://huggingface.co/arturofierrop/qwen-3-1.7B-teleco-slm-GGUF)
@@ -284,7 +285,7 @@ App Flutter multiplataforma que permite consultar información de telecomunicaci
 
 La app está publicada en Google Play: **[Teleco SLM](https://play.google.com/store/apps/details?id=com.telecoslm.app)**.
 
-La guía de instalación y uso de la app está en [Manual de Usuario - TelecoSLM.pdf](Manual%20de%20Usuario%20-%20TelecoSLM.pdf).
+La guía de instalación y uso de la app está en el [manual de usuario](docs/Manual_de_usuario.md).
 
 > **Nota:** El archivo `.gguf` del modelo no está incluido por su tamaño. Para obtenerlo, descárgalo desde [Hugging Face](https://huggingface.co/arturofierrop/qwen-3-1.7B-teleco-slm-GGUF).
 
