@@ -6,10 +6,13 @@
 [![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Available on Google Play](https://img.shields.io/badge/Google%20Play-Teleco%20SLM-success?logo=google-play&logoColor=white)](https://play.google.com/store/apps/details?id=com.telecoslm.app)
 [![Hugging Face](https://img.shields.io/badge/Hugging%20Face-Qwen3%201.7B%20Teleco%20GGUF-yellow?logo=huggingface&logoColor=white)](https://huggingface.co/arturofierrop/qwen-3-1.7B-teleco-slm-GGUF)
+[![Report](https://img.shields.io/badge/Report-Full%20PDF-red?logo=adobeacrobatreader&logoColor=white)](docs/Memoria_TFG.pdf)
 
 Final Degree Project in Telecommunication Systems Engineering (Universidad CEU San Pablo, Madrid). **Graded with distinction (Matrícula de Honor).** Finalist among the top 10 projects at the Mondragón Awards.
 
 This project compares LLMs, SLMs, Mini-SLMs, fine-tuned models and a generative GAN on text generation tasks, evaluated over four datasets: WebNLG, ToTTo, KELM and a purpose-built Spanish corpus from the telecommunications domain (*Teleco*, ~24,680 Q&A pairs). The end result is **TelecoSLM**, a Flutter app that runs the selected model (Qwen3 1.7B FT, Q4_K_M GGUF) fully offline on Android and Windows.
+
+The full research — theoretical background, experimental design, methodology and the complete set of results and appendices — is in the [project report](docs/Memoria_TFG.pdf).
 
 ## Why
 
