@@ -1,4 +1,4 @@
-[English](USER_MANUAL.md) · **Español**
+[English](User_manual.md) · **Español**
 
 # Teleco SLM — Manual de Usuario
 
