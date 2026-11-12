@@ -31,7 +31,7 @@ android {
         applicationId = "com.telecoslm.app"
         minSdk = 26
         targetSdk = flutter.targetSdkVersion
-        versionCode = 5
+        versionCode = 6
         versionName = "1.0.2"
     }
 
