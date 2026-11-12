@@ -6,10 +6,13 @@
 [![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Disponible en Google Play](https://img.shields.io/badge/Google%20Play-Teleco%20SLM-success?logo=google-play&logoColor=white)](https://play.google.com/store/apps/details?id=com.telecoslm.app)
 [![Hugging Face](https://img.shields.io/badge/Hugging%20Face-Qwen3%201.7B%20Teleco%20GGUF-yellow?logo=huggingface&logoColor=white)](https://huggingface.co/arturofierrop/qwen-3-1.7B-teleco-slm-GGUF)
+[![Memoria](https://img.shields.io/badge/Memoria-PDF%20completo-red?logo=adobeacrobatreader&logoColor=white)](docs/Memoria_TFG.pdf)
 
 Trabajo de Fin de Grado en Ingeniería de Sistemas de Telecomunicación (Universidad CEU San Pablo, Madrid). **Calificación: Matrícula de Honor.** Finalista entre los 10 mejores proyectos de los Premios Mondragón.
 
 Este proyecto compara LLMs, SLMs, Mini-SLMs, modelos fine-tuneados y un GAN generativo en tareas de generación de texto, evaluados sobre cuatro datasets: WebNLG, ToTTo, KELM y un corpus propio en español del ámbito de telecomunicaciones (*Teleco*, ~24.680 pares Q&A). El resultado final es **TelecoSLM**, una app Flutter que ejecuta el modelo seleccionado (Qwen3 1.7B FT, Q4_K_M GGUF) de forma completamente offline en Android y Windows.
+
+La investigación completa —marco teórico, diseño experimental, metodología y la totalidad de los resultados y anexos— está en la [memoria del Trabajo de Fin de Grado](docs/Memoria_TFG.pdf).
 
 ## Por qué
 
