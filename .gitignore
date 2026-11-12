@@ -66,3 +66,35 @@ n_total
 
 # Videos
 *.mp4
+
+# ===== Documentación y entregables académicos =====
+/*.docx
+/*.pdf
+/*.pptx
+
+# ===== Datasets y splits =====
+dataset_teleco.csv
+kelm_stem_60k.csv
+splits_por_subtema.json
+/base de datos/
+
+# ===== Resultados de inferencia =====
+LLM/base_*/
+SLM/base_*/
+mini-SLM/base_*/
+GAN/resultados_gan/
+fine-tuning/resultados_fine-tuning/
+fine-tuning/lora_adapter_*/
+
+# ===== Gráficas y reportes generados =====
+graficas_y_tests/*/
+
+# ===== Material auxiliar =====
+/Capturas app/
+/encuesta/
+/info/
+/servicios/
+/arbol.txt
+/instalar app.txt
+/paquetes.txt
+/play_store_icon_512.png
