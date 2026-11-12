@@ -1,0 +1,11 @@
+# Dependencias necesarias para ejecutar la suite de tests.
+# Deliberadamente más ligeras que requirements.txt: los tests cubren funciones
+# auxiliares puras y el artefacto de splits versionado, así que no hacen falta
+# torch, transformers ni las librerías de métricas. Esto mantiene el CI por
+# debajo de un minuto.
+
+pytest>=8.0
+pandas>=2.0
+numpy>=1.24
+scipy>=1.10
+tqdm>=4.65
