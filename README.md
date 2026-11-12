@@ -1,4 +1,4 @@
-[English](README.md) · **Español**
+[English](README.en.md) · **Español**
 
 # TelecoSLM — Diseño e implementación de una aplicación generativa de explicación de contenidos de telecomunicaciones de dominio específico
 
