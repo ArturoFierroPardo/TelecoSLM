@@ -7,6 +7,7 @@
 [![Disponible en Google Play](https://img.shields.io/badge/Google%20Play-Teleco%20SLM-success?logo=google-play&logoColor=white)](https://play.google.com/store/apps/details?id=com.telecoslm.app)
 [![Hugging Face](https://img.shields.io/badge/Hugging%20Face-Qwen3%201.7B%20Teleco%20GGUF-yellow?logo=huggingface&logoColor=white)](https://huggingface.co/arturofierrop/qwen-3-1.7B-teleco-slm-GGUF)
 [![Memoria](https://img.shields.io/badge/Memoria-PDF%20completo-red?logo=adobeacrobatreader&logoColor=white)](docs/Memoria_TFG.pdf)
+[![Descargas](https://img.shields.io/github/v/release/ArturoFierroPardo/TelecoSLM?label=Descargas&logo=github)](https://github.com/ArturoFierroPardo/TelecoSLM/releases/latest)
 
 Trabajo de Fin de Grado en Ingeniería de Sistemas de Telecomunicación (Universidad CEU San Pablo, Madrid). **Calificación: Matrícula de Honor.** Finalista entre los 10 mejores proyectos de los Premios Mondragón.
 
