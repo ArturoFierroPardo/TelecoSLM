@@ -289,6 +289,8 @@ App Flutter multiplataforma que permite consultar información de telecomunicaci
 
 La app está publicada en Google Play: **[Teleco SLM](https://play.google.com/store/apps/details?id=com.telecoslm.app)**.
 
+**Descargas directas.** El APK de Android y el instalador de Windows están en la [última release](https://github.com/ArturoFierroPardo/TelecoSLM/releases/latest), en la sección *Assets*. El instalador de Windows (1,04 GB) incluye el modelo dentro y funciona sin descargas adicionales. El APK requiere Android 8.0 o superior y la app descarga el modelo desde Hugging Face la primera vez que se abre; a partir de ahí funciona offline.
+
 La guía de instalación y uso de la app está en el [manual de usuario](docs/Manual_de_usuario.md).
 
 > **Nota:** El archivo `.gguf` del modelo no está incluido por su tamaño. Para obtenerlo, descárgalo desde [Hugging Face](https://huggingface.co/arturofierrop/qwen-3-1.7B-teleco-slm-GGUF).
