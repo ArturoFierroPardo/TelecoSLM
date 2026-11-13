@@ -13,7 +13,7 @@ Final Degree Project in Telecommunication Systems Engineering (Universidad CEU S
 
 This project compares LLMs, SLMs, Mini-SLMs, fine-tuned models and a generative GAN on text generation tasks, evaluated over four datasets: WebNLG, ToTTo, KELM and a purpose-built Spanish corpus from the telecommunications domain (*Teleco*, ~24,680 Q&A pairs). The end result is **TelecoSLM**, a Flutter app that runs the selected model (Qwen3 1.7B FT, Q4_K_M GGUF) fully offline on Android and Windows.
 
-The full research — theoretical background, experimental design, methodology and the complete set of results and appendices — is in the [project report](docs/Memoria_TFG.pdf).
+The full research (theoretical background, experimental design, methodology and the complete set of results and appendices) is in the [project report](docs/Memoria_TFG.pdf).
 
 ## Why
 
