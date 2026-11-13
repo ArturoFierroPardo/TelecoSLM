@@ -7,6 +7,7 @@
 [![Available on Google Play](https://img.shields.io/badge/Google%20Play-Teleco%20SLM-success?logo=google-play&logoColor=white)](https://play.google.com/store/apps/details?id=com.telecoslm.app)
 [![Hugging Face](https://img.shields.io/badge/Hugging%20Face-Qwen3%201.7B%20Teleco%20GGUF-yellow?logo=huggingface&logoColor=white)](https://huggingface.co/arturofierrop/qwen-3-1.7B-teleco-slm-GGUF)
 [![Report](https://img.shields.io/badge/Report-Full%20PDF-red?logo=adobeacrobatreader&logoColor=white)](docs/Memoria_TFG.pdf)
+[![Downloads](https://img.shields.io/github/v/release/ArturoFierroPardo/TelecoSLM?label=Downloads&logo=github)](https://github.com/ArturoFierroPardo/TelecoSLM/releases/latest)
 
 Final Degree Project in Telecommunication Systems Engineering (Universidad CEU San Pablo, Madrid). **Graded with distinction (Matrícula de Honor).** Finalist among the top 10 projects at the Mondragón Awards.
 
@@ -287,6 +288,8 @@ Cross-platform Flutter app for querying telecommunications content offline.
 - Conversation history stored exclusively on the device via SQLite. In local or GGUF mode, no data leaves the machine.
 
 The app is published on Google Play: **[Teleco SLM](https://play.google.com/store/apps/details?id=com.telecoslm.app)**.
+
+**Direct downloads.** The Android APK and the Windows installer are in the [latest release](https://github.com/ArturoFierroPardo/TelecoSLM/releases/latest), under *Assets*. The Windows installer (1.04 GB) bundles the model and works with no further downloads. The APK requires Android 8.0 or later and the app downloads the model from Hugging Face on first launch; it runs offline from then on.
 
 The installation and usage guide for the app is in the [user manual](docs/User_manual.md).
 
