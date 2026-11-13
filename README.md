@@ -13,7 +13,7 @@ Trabajo de Fin de Grado en Ingeniería de Sistemas de Telecomunicación (Univers
 
 Este proyecto compara LLMs, SLMs, Mini-SLMs, modelos fine-tuneados y un GAN generativo en tareas de generación de texto, evaluados sobre cuatro datasets: WebNLG, ToTTo, KELM y un corpus propio en español del ámbito de telecomunicaciones (*Teleco*, ~24.680 pares Q&A). El resultado final es **TelecoSLM**, una app Flutter que ejecuta el modelo seleccionado (Qwen3 1.7B FT, Q4_K_M GGUF) de forma completamente offline en Android y Windows.
 
-La investigación completa —marco teórico, diseño experimental, metodología y la totalidad de los resultados y anexos— está en la [memoria del Trabajo de Fin de Grado](docs/Memoria_TFG.pdf).
+La investigación completa (marco teórico, diseño experimental, metodología y la totalidad de los resultados y anexos) está en la [memoria del Trabajo de Fin de Grado](docs/Memoria_TFG.pdf).
 
 ## Por qué
 
